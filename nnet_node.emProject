@@ -50,7 +50,6 @@
       <file file_name="../../../components/libraries/fifo/app_fifo.c" />
       <file file_name="../../../components/libraries/scheduler/app_scheduler.c" />
       <file file_name="../../../components/libraries/timer/app_timer.c" />
-      <file file_name="../../../components/libraries/uart/app_uart_fifo.c" />
       <file file_name="../../../components/libraries/util/app_util_platform.c" />
       <file file_name="../../../components/libraries/hardfault/hardfault_implementation.c" />
       <file file_name="../../../components/libraries/util/nrf_assert.c" />
@@ -66,6 +65,7 @@
       <file file_name="../../../components/libraries/experimental_section_vars/nrf_section_iter.c" />
       <file file_name="../../../components/libraries/strerror/nrf_strerror.c" />
       <file file_name="../../../components/libraries/uart/retarget.c" />
+      <file file_name="../../../components/libraries/uart/app_uart_fifo.c" />
     </folder>
     <folder Name="None">
       <file file_name="../../../modules/nrfx/mdk/ses_startup_nrf52.s" />
@@ -92,6 +92,7 @@
     <folder Name="Application">
       <file file_name="source/main.c" />
       <file file_name="include/sdk_config.h" />
+      <file file_name="source/app_nnet.c" />
     </folder>
     <folder Name="nRF_Segger_RTT">
       <file file_name="../../../external/segger_rtt/SEGGER_RTT.c" />

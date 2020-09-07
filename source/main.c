@@ -29,6 +29,8 @@
 #include "nrf_log_ctrl.h"
 #include "nrf_log_default_backends.h"
 
+#include "app_nnet.h"
+
 #define APP_BLE_CONN_CFG_TAG            1                                           /**< A tag identifying the SoftDevice BLE configuration. */
 
 #define DEVICE_NAME                     "Nordic_UART"                               /**< Name of device. Will be included in the advertising data. */
@@ -510,8 +512,17 @@ static void advertising_start(void)
     APP_ERROR_CHECK(err_code);
 }
 
+
+//#include "sdk_config.h"
+#define NRF_BLE_SCAN_BUFFER 31 // from sdk config
+static uint8_t buf[NRF_BLE_SCAN_BUFFER] = {0};
+
+static ble_data_t ble_data;
+
+
 int main(void)
 {
+
     bool erase_bonds;
 
     // Initialize.
@@ -524,17 +535,21 @@ int main(void)
     gap_params_init();
     gatt_init();
     services_init();
-    advertising_init();
-    conn_params_init();
+    //advertising_init();
+    //conn_params_init();
+    app_nnet_init(0xff);
 
     // Start execution.
     printf("\r\nUART started.\r\n");
     NRF_LOG_INFO("Debug logging for UART over RTT started.");
-    advertising_start();
+   // advertising_start();
 
     // Enter main loop.
+    int a;
     for (;;)
     {
-        idle_state_handle();
+        a++;
+        a--;
+       // idle_state_handle();
     }
 }
