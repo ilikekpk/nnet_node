@@ -520,6 +520,12 @@ static uint8_t buf[NRF_BLE_SCAN_BUFFER] = {0};
 static ble_data_t ble_data;
 
 
+static uint8_t buffer[APP_NNET_PACKET_SIZE];
+
+
+
+uint16_t tst = 0;
+
 int main(void)
 {
 
@@ -537,7 +543,13 @@ int main(void)
     services_init();
     //advertising_init();
     //conn_params_init();
-    app_nnet_init(0xff);
+    nnet_config_t nnet_config = {
+        .nnet_addr = 0xff,
+        .aes_key = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15},
+        .start_counter = 30
+    };
+
+    app_nnet_init(&nnet_config);
 
     // Start execution.
     printf("\r\nUART started.\r\n");
@@ -545,11 +557,10 @@ int main(void)
    // advertising_start();
 
     // Enter main loop.
-    int a;
+
     for (;;)
     {
-        a++;
-        a--;
+       tst += app_nnet_get_cmd(&nnet_config, buffer);
        // idle_state_handle();
     }
 }
