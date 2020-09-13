@@ -30,6 +30,7 @@
 #include "nrf_log_default_backends.h"
 
 #include "app_nnet.h"
+#include "nrf_delay.h"
 
 #define APP_BLE_CONN_CFG_TAG            1                                           /**< A tag identifying the SoftDevice BLE configuration. */
 
@@ -532,7 +533,7 @@ int main(void)
     bool erase_bonds;
 
     // Initialize.
-    uart_init();
+    //uart_init();
     log_init();
     timers_init();
     buttons_leds_init(&erase_bonds);
@@ -552,15 +553,15 @@ int main(void)
     app_nnet_init(&nnet_config);
 
     // Start execution.
-    printf("\r\nUART started.\r\n");
+  //  printf("\r\nUART started.\r\n");
     NRF_LOG_INFO("Debug logging for UART over RTT started.");
    // advertising_start();
-
+    nrf_gpio_cfg_output(13);
     // Enter main loop.
-
+    nrf_gpio_pin_write(13, 0);
     for (;;)
     {
-       tst += app_nnet_get_cmd(&nnet_config, buffer);
+       if (app_nnet_get_cmd(&nnet_config, buffer)) nrf_gpio_pin_write(13, !buffer[9]);
        // idle_state_handle();
     }
 }
