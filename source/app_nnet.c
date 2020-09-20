@@ -110,7 +110,7 @@ bool app_nnet_get_cmd(nnet_config_t * config, uint8_t* p_buffer) //size of buffe
     
     uint32_t packet_counter = 0;
     memcpy(&packet_counter, &packet[10], 4);
-    if (nnet_counter > packet_counter) return false;
+   // if (nnet_counter > packet_counter) return false;
     nnet_counter++;
 
     memcpy(p_buffer, packet, APP_NNET_PACKET_SIZE);  //packet without counter and crc

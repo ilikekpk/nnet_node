@@ -69,9 +69,6 @@
       <file file_name="../../../modules/nrfx/mdk/ses_startup_nrf_common.s" />
       <file file_name="../../../modules/nrfx/mdk/system_nrf52.c" />
     </folder>
-    <folder Name="Board Definition">
-      <file file_name="../../../components/boards/boards.c" />
-    </folder>
     <folder Name="nRF_Drivers">
       <file file_name="../../../integration/nrfx/legacy/nrf_drv_clock.c" />
       <file file_name="../../../modules/nrfx/drivers/src/nrfx_clock.c" />
@@ -79,15 +76,11 @@
       <file file_name="../../../modules/nrfx/drivers/src/nrfx_power_clock.c" />
       <file file_name="../../../modules/nrfx/drivers/src/prs/nrfx_prs.c" />
     </folder>
-    <folder Name="Board Support">
-      <file file_name="../../../components/libraries/bsp/bsp.c" />
-      <file file_name="../../../components/libraries/bsp/bsp_btn_ble.c" />
-    </folder>
     <folder Name="Application">
       <file file_name="source/main.c" />
       <file file_name="include/sdk_config.h" />
       <file file_name="source/app_nnet.c" />
-      <file file_name="source/ble_nus_secure.c" />
+      <file file_name="source/ble_commands.c" />
     </folder>
     <folder Name="nRF_Segger_RTT">
       <file file_name="../../../external/segger_rtt/SEGGER_RTT.c" />
@@ -127,7 +120,9 @@
     <folder Name="UTF8/UTF16 converter">
       <file file_name="../../../external/utf_converter/utf.c" />
     </folder>
-    <folder Name="nRF_BLE_Services" />
+    <folder Name="nRF_BLE_Services">
+      <file file_name="source/ble_nus_secure.c" />
+    </folder>
     <folder Name="nRF_SoftDevice">
       <file file_name="../../../components/softdevice/common/nrf_sdh.c" />
       <file file_name="../../../components/softdevice/common/nrf_sdh_ble.c" />
